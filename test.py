@@ -6,7 +6,7 @@ import pandas as pd
 import matplotlib.pyplot as plt  
 from scipy.optimize import minimize
 import scipy
-'''
+
 f_obj = open("ratings.csv")
 reader = csv.DictReader(f_obj, delimiter=',')
 
@@ -43,7 +43,7 @@ print "Rating : ",Rating[:,0].size," ",Rating[0,:].size
 print "IsRated : ",IsRated[:,0].size," ",IsRated[0,:].size
 
 np.savez('Rating.npz',a=Rating,b=IsRated)
-'''
+
 
 
 num_features = 20
@@ -86,7 +86,7 @@ num_user = Rating[0,:].size
 similarity = np.zeros((num_user,num_user))
 
 C = 5
-'''
+
 for i in range(num_user):
     for j in range(num_user):
         meani = np.mean(Rating[IsRated[:,i]==1 ,i])
@@ -103,7 +103,6 @@ for i in range(num_user):
         print i," rows completed"
 
 np.savez('Similarity.npz',a=similarity)
-'''
 
 
 data = np.load('Similarity.npz')
